@@ -17,6 +17,8 @@ function App() {
 
   const handleInput = (n) => setNumber(prev => `${prev === '0' ? '' : prev}${n}`)
 
+  const backspace = () => setNumber(number.substring(0, number.length -1))
+
   // operations
   const addition = () => {
     if (firstValue === '0') {
@@ -27,6 +29,7 @@ function App() {
 
     if (firstValue !== '0') {
       setNumber(Number(firstValue) + Number(number))
+      setFirstValue('0')
       setOperation('')
     }
   }
@@ -40,6 +43,7 @@ function App() {
 
     if (firstValue !== '0') {
       setNumber(Number(firstValue) - Number(number))
+      setFirstValue('0')
       setOperation('')
     }
   }
@@ -53,6 +57,7 @@ function App() {
 
     if (firstValue !== '0') {
       setNumber(Number(firstValue) * Number(number))
+      setFirstValue('0')
       setOperation('')
     }
   }
@@ -66,6 +71,7 @@ function App() {
 
     if (firstValue !== '0') {
       setNumber(Number(firstValue) / Number(number))
+      setFirstValue('0')
       setOperation('/')
     }
   }
@@ -100,7 +106,8 @@ function App() {
         <Controls>
           <Wrapper>
             <Actions>
-              <Button label="C" event={clear} />
+              <Button label="ac" event={clear} />
+              <Button label="<" event={backspace} />
             </Actions>
 
             <Numbers>
@@ -114,6 +121,7 @@ function App() {
               <Button label="2" event={() => handleInput('2')} />
               <Button label="3" event={() => handleInput('3')} />
               <Button label="0" event={() => handleInput('0')} />
+              <Button label="." event={() => handleInput('.')} />
             </Numbers>
           </Wrapper>
 
