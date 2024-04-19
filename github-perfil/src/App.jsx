@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="max-w-xl mx-auto">
         <Home />
       </main>
     </>
