@@ -16,6 +16,7 @@ const Home = () => {
     e.preventDefault()
 
     setIsLoading(true)
+    setUserRepos([])
     await fetch(USERS_URL).then(res => res.json()).then(userData => {
       setCurrentUser(userData)
       setIsLoading(false)
