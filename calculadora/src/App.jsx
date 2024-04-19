@@ -17,7 +17,7 @@ function App() {
 
   const handleInput = (n) => setNumber(prev => `${prev === '0' ? '' : prev}${n}`)
 
-  const backspace = () => setNumber(number.substring(0, number.length -1))
+  const backspace = () => setNumber(() => number.substring(0, number.length -1))
 
   // operations
   const addition = () => {
@@ -28,7 +28,7 @@ function App() {
     }
 
     if (firstValue !== '0') {
-      setNumber(Number(firstValue) + Number(number))
+      setNumber(String(Number(firstValue) + Number(number)))
       setFirstValue('0')
       setOperation('')
     }
@@ -42,7 +42,7 @@ function App() {
     }
 
     if (firstValue !== '0') {
-      setNumber(Number(firstValue) - Number(number))
+      setNumber(String(Number(firstValue) - Number(number)))
       setFirstValue('0')
       setOperation('')
     }
@@ -56,7 +56,7 @@ function App() {
     }
 
     if (firstValue !== '0') {
-      setNumber(Number(firstValue) * Number(number))
+      setNumber(String(Number(firstValue) * Number(number)))
       setFirstValue('0')
       setOperation('')
     }
@@ -70,7 +70,7 @@ function App() {
     }
 
     if (firstValue !== '0') {
-      setNumber(Number(firstValue) / Number(number))
+      setNumber(String(Number(firstValue) / Number(number)))
       setFirstValue('0')
       setOperation('/')
     }
