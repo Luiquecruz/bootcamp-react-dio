@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react"
 import Repository from "../../Components/Repository"
 
+// @TODO: add a section to list "stared" repos
+// @TODO: add "stared" repos count
+// @TODO: add a methods to "star" a repo
+// @TODO: add a methods to "unstar" a repo
+// @TODO: persist "stared" repos in localstorage
+
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [username, setUsername] = useState('')
@@ -115,7 +121,7 @@ const Home = () => {
           <h4 className="text-xl font-bold mb-6">Repositórios</h4>
 
           <ul className="flex flex-col gap-4">
-            {userRepos.map(repo => <Repository key={repo.id} url={repo.html_url} title={repo.name} description={repo.description} />)}
+            {userRepos.map(repo => <Repository key={repo.id} data={repo} />)}
           </ul>
         </section>
       )}
