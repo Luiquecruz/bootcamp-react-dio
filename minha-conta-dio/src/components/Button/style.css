@@ -1,0 +1,15 @@
+.btn {
+  @apply font-bold rounded-lg px-6 py-2.5 hover:brightness-110;
+}
+
+.primary {
+  @apply bg-primary border border-primary text-white;
+}
+
+.secondary {
+  @apply bg-secondary border border-secondary text-black;
+}
+
+.tertiary {
+  @apply bg-tertiary border border-tertiary text-white;
+}

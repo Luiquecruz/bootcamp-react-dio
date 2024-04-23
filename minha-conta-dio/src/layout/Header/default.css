@@ -1,0 +1,3 @@
+.header-default {
+  @apply flex bg-menu text-white;
+}

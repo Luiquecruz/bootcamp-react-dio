@@ -1,0 +1,15 @@
+.input-field {
+  @apply flex gap-2 items-center justify-start pl-1 bg-content border-b-2 border-tertiary;
+}
+
+.input-field + .input-field {
+  @apply mt-4;
+}
+
+.input-field i {
+  @apply not-italic text-tertiary;
+}
+
+.input-field input {
+  @apply appearance-none w-full py-1 bg-transparent text-white placeholder:text-[#8a8a8a] focus:outline-none;
+}
