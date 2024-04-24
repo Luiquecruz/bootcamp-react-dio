@@ -1,3 +1,20 @@
 .header-user {
-  @apply flex bg-menu-dark text-white;
+  @apply flex items-center gap-4 bg-menu-dark text-white px-4 py-[13px];
+}
+
+.header-user ul {
+  @apply flex items-center gap-4;
+}
+
+.header-user ul li a {
+  @apply font-semibold hover:text-tertiary;
+}
+
+.header-user ul li:nth-child(2) a,
+.header-user ul li:nth-child(3) a {
+  @apply hover:text-secondary;
+}
+
+.header-user .actions {
+  @apply flex items-center gap-4 ml-auto;
 }
