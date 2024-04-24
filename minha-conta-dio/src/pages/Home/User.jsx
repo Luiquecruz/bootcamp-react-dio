@@ -2,7 +2,7 @@ import './user.css'
 
 const User = () => {
   return (
-    <h1>Home User</h1>
+    <h1>Minha conta</h1>
   )
 }
 

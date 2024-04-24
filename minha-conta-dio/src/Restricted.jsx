@@ -1,8 +1,6 @@
-import { Header, HeaderUser } from "./layout/Header";
+import { Outlet } from "react-router-dom";
 
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
-import { HomeDefault, HomeUser } from './pages/Home'
+import { HeaderUser } from "./layout/Header";
 
 import Button from "./components/Button";
 import Input from "./components/Input";
@@ -15,13 +13,11 @@ function Icon() {
   )
 }
 
-function App() {
+const Restricted = () => {
   return (<>
-    <h1><strong>APP</strong></h1>
-    <br />
-    <p><strong>LAYOUTS</strong></p>
-    <Header/>
     <HeaderUser />
+    <Outlet />
+
     <p><strong>COMPONENTS</strong></p>
     <Button />
     <Button variant="secondary" label="Button secondary" />
@@ -29,13 +25,7 @@ function App() {
 
     <Input />
     <Input icon={<Icon />} id="" type="email" label="" placeholder="Enter an e-mail address" required={true} />
-
-    <p><strong>PAGES</strong></p>
-    <Login />
-    <Register />
-    <HomeDefault />
-    <HomeUser />
-  </>);
+  </>)
 }
 
-export default App;
+export default Restricted
