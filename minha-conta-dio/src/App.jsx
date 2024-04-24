@@ -4,8 +4,10 @@ import { Header } from "./layout/Header";
 
 function App() {
   return (<>
-    <Header/>
-    <Outlet />
+    <Header />
+    <main className="min-h-[calc(100dvh_-_74px)] bg-content">
+      <Outlet />
+    </main>
   </>);
 }
 

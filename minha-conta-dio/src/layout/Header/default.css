@@ -1,3 +1,15 @@
 .header-default {
-  @apply flex bg-menu text-white;
+  @apply p-4 bg-menu text-white;
+}
+
+.header-default nav {
+  @apply flex items-center justify-between max-w-[1200px] w-full mx-auto;
+}
+
+.header-default nav ul {
+  @apply flex items-center gap-4;
+}
+
+.header-default nav ul li a {
+  @apply hover:text-tertiary transition;
 }

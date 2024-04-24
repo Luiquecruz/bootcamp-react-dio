@@ -16,7 +16,9 @@ function Icon() {
 const Restricted = () => {
   return (<>
     <HeaderUser />
-    <Outlet />
+    <main className="min-h-[calc(100dvh_-_78px)] bg-content-user">
+      <Outlet />
+    </main>
 
     <p><strong>COMPONENTS</strong></p>
     <Button />

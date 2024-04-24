@@ -1,5 +1,25 @@
 .btn {
-  @apply font-bold rounded-lg px-6 py-2.5 hover:brightness-110;
+  @apply flex items-center justify-center gap-2 font-bold rounded-lg px-4 py-2 min-w-fit hover:brightness-110;
+}
+
+.btn i {
+  @apply not-italic inline-block
+}
+
+.outlined {
+  @apply bg-transparent border border-white text-white;
+}
+
+.outlined-primary {
+  @apply hover:bg-primary hover:border-primary;
+}
+
+.outlined-secondary {
+  @apply hover:bg-secondary hover:border-secondary hover:text-black;
+}
+
+.outlined-tertiary {
+  @apply hover:bg-tertiary hover:border-tertiary;
 }
 
 .primary {

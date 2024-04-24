@@ -1,0 +1,11 @@
+.home-page {
+  @apply bg-gradient-to-r from-black from-30% px-4 shadow-lg;
+}
+
+.home-page .container {
+  @apply max-w-[1200px] mx-auto;
+}
+
+.home-page .container a {
+  @apply inline-block;
+}
