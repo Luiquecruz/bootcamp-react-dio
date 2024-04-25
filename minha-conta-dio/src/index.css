@@ -7,3 +7,7 @@
 body {
   @apply font-open-sans;
 }
+
+.container {
+  @apply max-w-[1200px] mx-auto;
+}

@@ -1,5 +1,5 @@
 .btn {
-  @apply flex items-center justify-center gap-2 font-bold rounded-lg px-4 py-2 min-w-fit hover:brightness-110;
+  @apply flex items-center justify-center gap-2 font-bold rounded-lg px-4 py-2 min-w-fit hover:brightness-110 transition;
 }
 
 .btn i {

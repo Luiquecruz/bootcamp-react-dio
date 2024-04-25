@@ -2,10 +2,6 @@
   @apply px-4 shadow-lg;
 }
 
-.restricted-home-page .container {
-  @apply max-w-[1200px] mx-auto;
-}
-
 .restricted-home-page .container h1 {
   text-shadow: 6px 4px 0 rgba(228,16,93, 1)
 }

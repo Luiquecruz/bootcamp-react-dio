@@ -1,0 +1,8 @@
+.login-page {
+  @apply px-4;
+}
+
+.login-page .login-btn {
+  @apply rounded-full w-full mt-14 py-1.5 focus:outline-none focus:bg-tertiary-light
+  ring-1 ring-tertiary-light ring-offset-8 ring-offset-content hover:shadow-2xl hover:shadow-tertiary-light/50;
+}
