@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 import './register.css'
@@ -36,8 +38,20 @@ function Lock() {
   )
 }
 
-
 const Register = () => {
+  const navigate = useNavigate()
+  const { register, handleSubmit} = useForm()
+  const onSubmit = async (data) => {
+    await fetch('http://localhost:3434/users', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    }).then(res => {
+      res.json()
+      return navigate('/minha-conta',  { replace: true })
+    })
+      .catch(error => console.error(error))
+  }
+
   return (<>
     <section className="register-page">
       <div className="flex justify-around container py-14">
@@ -53,11 +67,15 @@ const Register = () => {
           <h1 className="font-bold text-white text-3xl mt-10">Start now free</h1>
           <p className="text-white mt-4 mb-6">Create your account and make the change._</p>
 
-          <form>
-            <Input icon={<Profile />} id="profile" type="text" label="profile" placeholder="Full name" required={true} />
-            <Input icon={<Mail />} id="email" type="email" label="email" placeholder="E-mail" required={true} />
-            <Input icon={<Phone />} id="phone" type="tel" label="phone" placeholder="+55 (99) 99999-9999" />
-            <Input icon={<Lock />} id="password" type="password" label="password" placeholder="Password" required={true} />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Input icon={<Profile />} id="profile" type="text" label="profile" placeholder="Full name"
+                   register={register} name="profile" rules={{required: true, maxLength: 128}} />
+            <Input icon={<Mail />} id="email" type="email" label="email" placeholder="E-mail"
+                   register={register} name="email" rules={{required: true}} />
+            <Input icon={<Phone />} id="phone" type="tel" label="phone" placeholder="+55 (99) 99999-9999"
+                   register={register} name="phone" rules={{maxLength: 20}} />
+            <Input icon={<Lock />} id="password" type="password" label="password" placeholder="Password"
+                   register={register} name="password" rules={{required: true, maxLength: 12}} />
 
             <small className="block mt-14 text-white">
               By clicking "Create my free account", I hereby agree to the
@@ -65,7 +83,7 @@ const Register = () => {
               of the DIO <Link to="#" className="text-tertiary-light hover:underline"> Terms of Use</Link>.
             </small>
 
-            <Button variant="tertiary" label="Create my free account" className="w-full mt-10" />
+            <Button type="submit" variant="tertiary" label="Create my free account" className="w-full mt-10" />
 
             <p className="mt-10 text-center text-white">
               Already have an account? <Link to="/login" className="text-green-400 hover:underline">Log in</Link>

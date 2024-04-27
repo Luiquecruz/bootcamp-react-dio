@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Luique Cruz",
+      "email": "luique@email.com",
+      "password": "senha12345"
+    },
+    {
+      "id": "2",
+      "name": "Teste User",
+      "email": "teste@email.com",
+      "password": "senha54321"
+    },
+    {
+      "id": "c6e7",
+      "profile": "Fulano",
+      "email": "fula@test.com",
+      "phone": "999111222334",
+      "password": "senha123"
+    }
+  ]
+}

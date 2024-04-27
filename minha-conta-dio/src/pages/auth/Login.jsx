@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 import './login.css'
@@ -21,6 +23,18 @@ function Lock() {
 }
 
 const Login = () => {
+  const navigate = useNavigate()
+  const { register, handleSubmit } = useForm()
+  const onSubmit = async (data) => {
+    await fetch (`http://localhost:3434/users?email=${data.email}&password=${data.password}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.length === 1) return navigate("/minha-conta", {replace: true})
+        return null
+      })
+      .catch(error => console.error(error))
+  }
+
   return (<>
     <section className="login-page">
       <div className="flex justify-around container py-14">
@@ -36,11 +50,14 @@ const Login = () => {
           <h1 className="font-bold text-white text-3xl mt-10">Are you registered yet?</h1>
           <p className="text-white mt-4 mb-6">Login in nd make the change._</p>
 
-          <form>
-            <Input icon={<Mail />} id="email" type="email" label="email" placeholder="E-mail" required={true} />
-            <Input icon={<Lock />} id="password" type="password" label="password" placeholder="Password" required={true} />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Input icon={<Mail />} id="email" type="email" label="email" placeholder="E-mail"
+                   name="email" register={register}/>
 
-            <Button variant="tertiary" label="SIGN IN" className="login-btn" />
+            <Input icon={<Lock />} id="password" type="password" label="password" placeholder="Password"
+                   register={register} name="password" rules={{required: true, maxLength: 12}} />
+
+            <Button type="submit" variant="tertiary" label="SIGN IN" className="login-btn" />
 
             <Link to="/register">
               <span className="block mt-10 text-center text-green-400 hover:underline">Create an account</span>
