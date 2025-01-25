@@ -154,14 +154,18 @@ const App = () => {
               <h4 className="text-xl font-bold mb-6">Repositórios</h4>
 
               <ul className="flex flex-col gap-4">
-                {userRepos.map(repo => (
-                  <Repository
-                    key={repo.id}
-                    data={repo}
-                    star={false}
-                    handleStar={() => handleStarRepo(repo)}
-                  />
-                ))}
+                {userRepos.map(repo => {
+                  const isLiked = starred.some(r => r.id === repo.id)
+
+                  return (
+                    <Repository
+                      key={repo.id}
+                      data={repo}
+                      star={isLiked}
+                      handleStar={() => handleStarRepo(repo)}
+                    />
+                  )}
+                )}
               </ul>
             </>
           )}
